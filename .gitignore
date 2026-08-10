@@ -1,0 +1,9 @@
+**.DS_Store
+**/.git/
+**/dist/
+**/node_modules/
+**/obj/
+**/bin/
+**/.venv/
+**/__pycache__/
+**/.vs/
