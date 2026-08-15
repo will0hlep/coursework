@@ -12,6 +12,13 @@ class Node:
     def __repr__(self):
         return self.val
 
+#lesson 3
+def backoff_delays(base: int):
+    delay = base
+    while True:
+        yield delay
+        delay *= 2
+
 #lesson 4
 from node import Node
 
