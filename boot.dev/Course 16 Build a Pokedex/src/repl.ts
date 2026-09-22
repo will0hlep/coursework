@@ -1,21 +1,20 @@
-import { initState } from './state.js';
+import { initState, State } from './state.js';
 
 
-export function startREPL() {
-    const programinterface = initState()
-    programinterface.interface.prompt();
-    programinterface.interface.on('line', async (input) => {
+export function startREPL(state: State) {
+    state.interface.prompt();
+    state.interface.on('line', async (input) => {
         try {
-            for (const command in programinterface.commands) {
-                if (input === command) {
-                    await programinterface.commands[command].callback(programinterface);
+            for (const command in state.commands) {
+                if (input.trim().toLowerCase() === command) {
+                    await state.commands[command].callback(state);
                     break;
                 }
             }
         } catch (error) {
             console.error("An error occurred:", error);
         }
-        programinterface.interface.prompt();
+        state.interface.prompt();
     });
 }
 

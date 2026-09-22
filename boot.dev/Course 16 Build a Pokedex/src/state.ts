@@ -15,10 +15,12 @@ export function initState(): State {
     interface: createInterface({
       input: process.stdin,
       output: process.stdout,
-      prompt: "> "
+      prompt: "Pokedex > "
     }),
     commands: getCommands(),
-    pokeapi: new PokeAPI()
+    pokeapi: new PokeAPI(),
+    nextLocationsURL: "",
+    prevLocationsURL: ""
   });
 }
 
